@@ -97,18 +97,20 @@ public class DefaultUserService implements UserService {
         if (userEntity == null) {
             throw new Exception("User id not found");
         }
-        return DefaultUser.builder()
-                .userId(userEntity.getUserId())
-                .loginId(userEntity.getLoginEntity().getLoginId())
-                .username(userEntity.getLoginEntity().getUsername())
-                .password(userEntity.getLoginEntity().getPassword())
-                .firstName(userEntity.getFirstName())
-                .lastName(userEntity.getLastName())
-                .email(userEntity.getEmail())
-                .description(userEntity.getDescription())
-                .roles(userEntity.getRoles())
-                .usersDepts(showUsersDepts(userId))
-                .build();
+            return DefaultUser.builder()
+                    .userId(userEntity.getUserId())
+                    .loginId(userEntity.getLoginEntity().getLoginId())
+                    .username(userEntity.getLoginEntity().getUsername())
+                    .password(userEntity.getLoginEntity().getPassword())
+                    .firstName(userEntity.getFirstName())
+                    .lastName(userEntity.getLastName())
+                    .email(userEntity.getEmail())
+                    .description(userEntity.getDescription())
+                    .roles(userEntity.getRoles())
+                    .usersDepts(showUsersDepts(userId))
+                    .build();
+
+
     }
 
     @Override
@@ -151,6 +153,7 @@ public class DefaultUserService implements UserService {
         userEntity.setEmail(userJson.getEmail());
         userEntity.setDescription(userJson.getDescription());
         userEntity.setRoles(userJson.getRoles());
+        userEntity.setOwn(true);
 
         this.userRepository.save(userEntity);
         loginEntity.setUserEntity(userEntity);

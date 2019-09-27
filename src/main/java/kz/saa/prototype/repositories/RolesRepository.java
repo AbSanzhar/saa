@@ -16,4 +16,5 @@ public interface RolesRepository extends JpaRepository<RolesEntity, Long> {
 
     @Query(value = "select * from roles where role_name='Head_Of_Dept'", nativeQuery = true)
     RolesEntity selectByDept();
+
 }

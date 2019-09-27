@@ -47,4 +47,10 @@ public class ServiceConfig {
     public DefaultDissovetService dissovetService() {
         return new DefaultDissovetService();
     }
+
+    @Bean
+    @Qualifier("defaultExternalUserService")
+    public DefaultExternalUserService externalUserService() {
+        return new DefaultExternalUserService();
+    }
 }

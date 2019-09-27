@@ -26,11 +26,18 @@ public class UserEntity {
     @Column(name = "last_name")
     private String lastName;
 
+    @Column(name = "patronymic")
+    private String patronymic;
+
     @Column(name = "email")
     private String email;
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "own")
+    private Boolean own;
+
 
     @JsonIgnore
     @OneToOne(mappedBy = "userEntity", cascade = CascadeType.ALL,
